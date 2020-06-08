@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    <ul class="list-inline">
+        {% for footprint in footprints %}
+            <li>
+                <div class="item">
+                    {{footprint.expenseType}}: {{footprint.ratio}}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

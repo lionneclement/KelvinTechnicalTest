@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <section class="py-5">
+        <div class="container text-center">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-12">
+                    {{ form_label(form.expenseType) }}
+                    <br>
+                    {{ form_widget(form.expenseType) }}
+                </div>
+                <div class="col-12">
+                    {{ form_label(form.ratio) }}
+                    <br>
+                    {{ form_widget(form.ratio) }}
+                </div>
+            </div>
+            <br>
+            <div class="text-center">
+                <button class="btn btn-secondary btn-lg" type="submit">Ajouter</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}
