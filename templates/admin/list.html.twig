@@ -9,6 +9,9 @@
             <li>
                 <div class="item">
                     {{footprint.expenseType}}: {{footprint.ratio}}
+                    <br>
+                    <a class="btn btn-primary" href="{{ path('update_footprint', {'id': footprint.id}) }}">Modifier</a>
+                    <a class="btn btn-primary" href="{{ path('remove_footprint', {'id': footprint.id}) }}">Supprimer</a>
                 </div>
             </li>
         {% endfor %}

@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FootPrintController extends AbstractController
 {
     /**
-     * @Route("/admin/list", name="list_footprint")
+     * @Route("/footprint/list", name="list_footprint")
      */
     public function list()
     {
@@ -25,7 +25,7 @@ class FootPrintController extends AbstractController
     }
 
     /**
-     * @Route("/admin/create", name="create_footprint")
+     * @Route("/footprint/create", name="create_footprint")
      */
     public function create(Request $request)
     {
@@ -45,5 +45,38 @@ class FootPrintController extends AbstractController
         return $this->render('admin/create.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/footprint/update/{id}", name="update_footprint", requirements={"id"="\d+"})
+     */
+    public function update(FootPrint $footPrint,Request $request)
+    {
+        $form = $this->createForm(FootprintType::class, $footPrint);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($footPrint);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('list_footprint');
+        }
+
+        return $this->render('admin/create.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/footprint/remove/{id}", name="remove_footprint", requirements={"id"="\d+"})
+     */
+    public function remove(FootPrint $footPrint)
+    {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($footPrint);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('list_footprint');
     }
 }
