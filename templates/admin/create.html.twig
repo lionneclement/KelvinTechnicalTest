@@ -8,15 +8,21 @@
             {{ form_start(form) }}
             <div class="row">
                 <div class="col-12">
-                    {{ form_row(form.expenseType) }}
+                    {{ form_errors(form.expenseType) }}
+                    {{ form_label(form.expenseType) }}
+                    <br>
+                    {{ form_widget(form.expenseType) }}
                 </div>
                 <div class="col-12">
-                    {{ form_row(form.ratio) }}
+                    {{ form_errors(form.ratio) }}
+                    {{ form_label(form.ratio) }}
+                    <br>
+                    {{ form_widget(form.ratio) }}
                 </div>
             </div>
             <br>
             <div class="text-center">
-                <button class="btn btn-primary btn-lg" type="submit">Ajouter</button>
+                <button class="btn btn-secondary" type="submit">Ajouter</button>
             </div>
             {{ form_end(form) }}
         </div>

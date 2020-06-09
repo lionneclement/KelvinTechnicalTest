@@ -8,11 +8,13 @@
             {{ form_start(form) }}
             <div class="row">
                 <div class="col-12">
+                    {{ form_errors(form.expenseType) }}
                     {{ form_label(form.expenseType) }}
                     <br>
                     {{ form_widget(form.expenseType) }}
                 </div>
                 <div class="col-12">
+                    {{ form_errors(form.ratio) }}
                     {{ form_label(form.ratio) }}
                     <br>
                     {{ form_widget(form.ratio) }}
@@ -20,8 +22,8 @@
             </div>
             <br>
             <div class="text-center">
-                <button class="btn btn-primary" type="submit">Modifier</button>
-                <a class="btn btn-primary" href="{{ path('remove_footprint', {'id': footprint.id}) }}">Supprimer</a>
+                <button class="btn btn-secondary" type="submit">Modifier</button>
+                <a class="btn btn-secondary" href="{{ path('remove_footprint', {'id': footprint.id}) }}">Supprimer</a>
             </div>
             {{ form_end(form) }}
         </div>
