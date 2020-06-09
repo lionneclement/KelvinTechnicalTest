@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand">Kelvin</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarText"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav nav ml-auto nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('calculate') }}">Accueil</a>
+        </li>
+        {% if is_granted('ROLE_USER') %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('list_footprint') }}">Admin</a>
+            </li>
+        {% endif %}
+        {% if not app.user %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+            </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
