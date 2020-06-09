@@ -63,8 +63,9 @@ class FootPrintController extends AbstractController
             return $this->redirectToRoute('list_footprint');
         }
 
-        return $this->render('admin/create.html.twig', [
+        return $this->render('admin/update.html.twig', [
             'form' => $form->createView(),
+            'footprint' => $footPrint
         ]);
     }
 
