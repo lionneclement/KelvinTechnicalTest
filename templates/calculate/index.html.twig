@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calculate!{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    <h1>Calculate your footprint!</h1>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-12">
+            {{ form_row(form.expenseType) }}
+        </div>
+        <div class="col-12">
+            {{ form_row(form.amount) }}
+        </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <button class="btn btn-primary btn-lg" type="submit">Calculate</button>
+    </div>
+    {{ form_end(form) }}
+    <br>
+    {% if carbonKg is not null %}
+       <h3>Your CO2 footprint for this expense is {{ carbonKg }} Kg</h3> 
+    {% endif %}
+</div>
+{% endblock %}
